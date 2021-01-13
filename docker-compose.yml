@@ -2,19 +2,11 @@ version: "3.9"
 
 services:
 
-  redis:
-    extends:
-      file: docker-compose.dependencies.yml
-      service: redis
-
   mongodb:
-    extends:
-      file: docker-compose.dependencies.yml
-      service: mongodb
+    image: mongo
 
   cwmp:
     depends_on:
-      - redis
       - mongodb
     extends:
       file: docker-compose.common.yml
@@ -26,7 +18,6 @@ services:
 
   nbi:
     depends_on:
-      - redis
       - mongodb
     extends:
       file: docker-compose.common.yml
@@ -38,7 +29,6 @@ services:
 
   fs:
     depends_on:
-      - redis
       - mongodb
     extends:
       file: docker-compose.common.yml

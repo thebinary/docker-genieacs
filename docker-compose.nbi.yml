@@ -2,17 +2,12 @@ version: "3.9"
 
 services:
 
-  redis:
-    extends:
-      file: docker-compose.dependencies.yml
-      service: redis
-
   mongodb:
-    extends:
-      file: docker-compose.dependencies.yml
-      service: mongodb
+    image: mongo
 
   nbi:
+    depends_on:
+      - mongodb
     extends:
       file: docker-compose.common.yml
       service: genieacs
