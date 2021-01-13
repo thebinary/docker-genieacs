@@ -9,3 +9,5 @@ services:
         TAG: ${GENIEACS_TAG}
         BRANCH: ${GENIEACS_BRANCH}
     image: thebinary/genieacs:${GENIEACS_TAG}
+    environment:
+      GENIEACS_MONGODB_CONNECTION_URL: mongodb://mongodb/genieacs
