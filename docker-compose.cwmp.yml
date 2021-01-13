@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+
+  redis:
+    extends:
+      file: docker-compose.dependencies.yml
+      service: redis
+
+  mongodb:
+    extends:
+      file: docker-compose.dependencies.yml
+      service: mongodb
+
+  cwmp:
+    depends_on:
+      - redis
+      - mongodb
+    extends:
+      file: docker-compose.common.yml
+      service: genieacs
+    ports:
+      - 7457:7777
+    command:
+      - genieacs-cwmp

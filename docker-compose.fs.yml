@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+
+  redis:
+    extends:
+      file: docker-compose.dependencies.yml
+      service: redis
+
+  mongodb:
+    extends:
+      file: docker-compose.dependencies.yml
+      service: mongodb
+
+  fs:
+    extends:
+      file: docker-compose.common.yml
+      service: genieacs
+    ports:
+      - 7567:7777
+    command:
+      - genieacs-fs

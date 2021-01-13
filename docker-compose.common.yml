@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+
+  genieacs:
+    build:
+      context: .
+      args:
+        TAG: ${GENIEACS_TAG}
+        BRANCH: ${GENIEACS_BRANCH}
+    image: thebinary/genieacs:${GENIEACS_TAG}
