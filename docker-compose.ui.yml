@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+
+  mongodb:
+    image: mongo
+
+  ui:
+    depends_on:
+      - mongodb
+    extends:
+      file: docker-compose.common.yml
+      service: genieacs
+    environment:
+      GENIEACS_MONGODB_CONNECTION_URL: mongodb://mongodb/genieacs
+      GENIEACS_UI_JWT_SECRET: secret
+    ports:
+      - 3000:7777
+    command:
+      - genieacs-ui
