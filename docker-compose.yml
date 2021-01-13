@@ -32,7 +32,7 @@ services:
       file: docker-compose.common.yml
       service: genieacs
     ports:
-      - 7457:7777
+      - 7557:7777
     command:
       - genieacs-nbi
 
@@ -44,6 +44,6 @@ services:
       file: docker-compose.common.yml
       service: genieacs
     ports:
-      - 7457:7777
+      - 7577:7777
     command:
       - genieacs-fs
